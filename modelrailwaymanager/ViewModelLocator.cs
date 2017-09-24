@@ -1,15 +1,15 @@
 ﻿using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
-using uwp_mvvm_template.Shared.ViewModels;
+using ModelRailwayManager.Shared.ViewModels;
 using Microsoft.Practices.ServiceLocation;
-using uwp_mvvm_template;
+using ModelRailwayManager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace uwp_mvvm_template
+namespace ModelRailwayManager
 {
     public class ViewModelLocator
     {

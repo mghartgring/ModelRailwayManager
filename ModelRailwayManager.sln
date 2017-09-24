@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uwp_mvvm_template", "uwp_mvvm_template\uwp_mvvm_template.csproj", "{2F0290F8-143A-44B9-94E1-4804CA0F45A3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelRailwayManager", "modelrailwaymanager\ModelRailwayManager.csproj", "{2F0290F8-143A-44B9-94E1-4804CA0F45A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uwp_mvvm_template.shared", "uwp_mvvm_template.shared\uwp_mvvm_template.shared.csproj", "{9C7487F5-FA5A-41F5-A335-370BFCEA5F7F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelRailwayManager.shared", "modelrailwaymanager.shared\ModelRailwayManager.shared.csproj", "{9C7487F5-FA5A-41F5-A335-370BFCEA5F7F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

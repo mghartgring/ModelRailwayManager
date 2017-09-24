@@ -14,7 +14,7 @@
   <mp:PhoneIdentity PhoneProductId="ad7cbd55-6ca4-4775-9acc-1d87191c50d0" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>uwp_mvvm_template</DisplayName>
+    <DisplayName>ModelRailwayManager</DisplayName>
     <PublisherDisplayName>MarkPC</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="uwp_mvvm_template.App">
+      EntryPoint="ModelRailwayManager.App">
       <uap:VisualElements
-        DisplayName="uwp_mvvm_template"
+        DisplayName="ModelRailwayManager"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="uwp_mvvm_template"
+        Description="ModelRailwayManager"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />

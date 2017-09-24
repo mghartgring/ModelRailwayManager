@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 
-namespace uwp_mvvm_template.Shared.ViewModels
+namespace ModelRailwayManager.Shared.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {

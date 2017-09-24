@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace uwp_mvvm_template.Shared.ViewModels
+namespace ModelRailwayManager.Shared.ViewModels
 {
     public class SecondViewModel : ViewModelBase
     {
