@@ -1,4 +1,4 @@
-﻿using GalaSoft.MvvmLight.Views;
+﻿using GalaSoft.MvvmLight.Ioc;
 using ModelRailwayManager.Shared.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace ModelRailwayManager
 {
@@ -24,10 +24,23 @@ namespace ModelRailwayManager
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
         public MainPage()
         {
             this.InitializeComponent();
             this.DataContext = new MainViewModel();
+
+        }
+
+        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
+        {
+            MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
+        }
+
+        private void MenuClickHandler(object sender, RoutedEventArgs e)
+        {
+            NavigationService nav = SimpleIoc.Default.GetInstance<NavigationService>();
+            nav.NavigateTo(ContentFrame, nav.FindViewByButtonName(((Button)sender).Name));
         }
     }
 }

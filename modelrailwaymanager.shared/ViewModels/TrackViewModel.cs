@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace ModelRailwayManager.Shared.ViewModels
 {
-    public class SecondViewModel : ViewModelBase
+    public class TrackViewModel : ViewModelBase
     {
-        public SecondViewModel()
+        public TrackViewModel()
         {
             
         }

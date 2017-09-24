@@ -1,5 +1,4 @@
 ﻿using GalaSoft.MvvmLight.Ioc;
-using GalaSoft.MvvmLight.Views;
 using ModelRailwayManager.Shared.ViewModels;
 using Microsoft.Practices.ServiceLocation;
 using ModelRailwayManager;
@@ -8,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HolidayCottageManager.Shared.ViewModels;
 
 namespace ModelRailwayManager
 {
@@ -21,23 +21,29 @@ namespace ModelRailwayManager
             }
         }
 
-        public SecondViewModel SecondView
+        public TrackViewModel TrackView
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<SecondViewModel>();
+                return ServiceLocator.Current.GetInstance<TrackViewModel>();
+            }
+        }
+
+        public TrainViewModel TrainView
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<TrainViewModel>();
             }
         }
 
         static ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-            var nav = new NavigationService();
-            nav.Configure("MainPage", typeof(MainPage));
-            nav.Configure("SecondPage", typeof(SecondPage));
-            SimpleIoc.Default.Register<INavigationService>(() => nav);
+            SimpleIoc.Default.Register<NavigationService>(() => new NavigationService());
             SimpleIoc.Default.Register<MainViewModel>();
-            SimpleIoc.Default.Register<SecondViewModel>();
+            SimpleIoc.Default.Register<TrackViewModel>();
+            SimpleIoc.Default.Register<TrainViewModel>();
 
         }
 
