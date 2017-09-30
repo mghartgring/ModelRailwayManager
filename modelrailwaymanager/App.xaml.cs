@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HolidayCottageManager.Shared.Services;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -30,6 +32,11 @@ namespace ModelRailwayManager
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            using (var db = new DatabaseService())
+            {
+                db.Database.Migrate();
+            }
         }
 
         /// <summary>
