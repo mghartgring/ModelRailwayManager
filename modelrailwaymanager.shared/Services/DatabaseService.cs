@@ -16,6 +16,25 @@ namespace HolidayCottageManager.Shared.Services
         {
             optionsBuilder.UseSqlite("Data Source=mrm.db, Version=3");
         }
+
+        public void AddAndSave<U>(U elem) where U : class
+        {
+            Add(elem);
+            SaveChanges();
+        }
+        
+        public void RemoveAndSave<U>(U elem) where U : class
+        {
+            Remove(elem);
+            SaveChanges();
+        }
+
+        public void UpdateAndSave<U>(U elem) where U : class
+        {
+            Update(elem);
+            SaveChanges();
+        }
+
         public DatabaseService()
         {
             

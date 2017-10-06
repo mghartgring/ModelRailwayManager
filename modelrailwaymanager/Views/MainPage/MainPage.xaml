@@ -59,7 +59,7 @@
         </SplitView.Pane>
         <SplitView.Content>
             <Frame x:Name="ContentFrame"
-                   Margin="200,0,0,0"/>
+                   Margin="0,0,0,0"/>
         </SplitView.Content>
     </SplitView>
 </Page>

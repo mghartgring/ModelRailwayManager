@@ -33,10 +33,10 @@ namespace ModelRailwayManager
             this.InitializeComponent();
             this.Suspending += OnSuspending;
 
-            using (var db = new DatabaseService())
-            {
-                db.Database.Migrate();
-            }
+            //using (var db = new DatabaseService())
+            //{
+            //    db.Database.Migrate();
+            //}
         }
 
         /// <summary>
