@@ -26,6 +26,22 @@ namespace HolidayCottageManager.Shared.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Wagons",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(nullable: true),
+                    Notes = table.Column<string>(nullable: true),
+                    PartNumber = table.Column<int>(nullable: false),
+                    ProductLink = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Wagons", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Tracks",
                 columns: table => new
                 {
@@ -43,6 +59,9 @@ namespace HolidayCottageManager.Shared.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Locomotives");
+
+            migrationBuilder.DropTable(
+                name: "Wagons");
 
             migrationBuilder.DropTable(
                 name: "Tracks");

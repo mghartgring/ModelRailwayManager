@@ -20,7 +20,7 @@ namespace ModelRailwayManager
             {
                 case "TrackButton": return typeof(TrackPage);
                 case "TrainButton": return typeof(TrainPage);
-                case "SettingsButton": return typeof(SettingsPage);
+                case "SettingsButton": return typeof(WagonPage);
                 default: return typeof(TrainPage);
             }
         }

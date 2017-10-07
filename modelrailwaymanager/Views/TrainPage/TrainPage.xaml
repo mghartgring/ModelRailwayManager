@@ -89,7 +89,6 @@
                         Grid.Column="0"/>
             <TextBox Style="{StaticResource BigInputBoxStyle}"
                      Grid.Row="5"
-                     AcceptsReturn="True"
                      Grid.Column="1"
                      Text="{Binding AddLocomotive.Notes, Mode=TwoWay}"/>
             <Button Grid.Row="6"

@@ -35,6 +35,24 @@ namespace HolidayCottageManager.Shared.Migrations
                     b.ToTable("Locomotives");
                 });
 
+            modelBuilder.Entity("HolidayCottageManager.Shared.Models.Wagon", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Notes");
+
+                    b.Property<int>("PartNumber");
+
+                    b.Property<string>("ProductLink");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Wagons");
+                });
+
             modelBuilder.Entity("HolidayCottageManager.Shared.Track", b =>
                 {
                     b.Property<int>("PartNumber")

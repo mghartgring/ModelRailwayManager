@@ -37,6 +37,14 @@ namespace ModelRailwayManager
             }
         }
 
+        public WagonViewModel WagonView
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<WagonViewModel>();
+            }
+        }
+        
         static ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
@@ -44,6 +52,7 @@ namespace ModelRailwayManager
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<TrackViewModel>();
             SimpleIoc.Default.Register<TrainViewModel>();
+            SimpleIoc.Default.Register<WagonViewModel>();
 
         }
 

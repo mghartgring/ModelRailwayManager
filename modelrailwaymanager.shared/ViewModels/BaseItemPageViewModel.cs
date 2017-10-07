@@ -44,7 +44,49 @@ namespace HolidayCottageManager.Shared.ViewModels
                 this.RaisePropertyChanged("AddVisibility");
             }
         }
+        #region Commands
+        private RelayCommand _deleteCommand;
+        public RelayCommand DeleteCommand
+        {
+            get
+            {
+                return _deleteCommand;
+            }
+            set
+            {
+                _deleteCommand = value;
+                this.RaisePropertyChanged("DeleteCommand");
+            }
+        }
 
+        private RelayCommand _addCommand;
+        public RelayCommand AddCommand
+        {
+            get
+            {
+                return _addCommand;
+            }
+            set
+            {
+                _addCommand = value;
+                this.RaisePropertyChanged("AddCommand");
+            }
+        }
+
+        private RelayCommand _updateCommand;
+        public RelayCommand UpdateCommand
+        {
+            get
+            {
+                return _updateCommand;
+            }
+            set
+            {
+                _updateCommand = value;
+                this.RaisePropertyChanged("UpdateCommand");
+            }
+        }
+        
 
         private RelayCommand _addSectionCommand;
         public RelayCommand AddSectionCommand
@@ -59,7 +101,7 @@ namespace HolidayCottageManager.Shared.ViewModels
                 this.RaisePropertyChanged("AddSectionCommand");
             }
         }
-
+        #endregion
         protected void ToggleSections()
         {
             AddVisibility = AddVisibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed;

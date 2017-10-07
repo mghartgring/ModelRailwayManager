@@ -62,49 +62,7 @@ namespace HolidayCottageManager.Shared.ViewModels
                 this.RaisePropertyChanged("AddLocomotive");
             }
         }
-        #region Commands
-        private RelayCommand _deleteCommand;
-        public RelayCommand DeleteCommand
-        {
-            get
-            {
-                return _deleteCommand;
-            }
-            set
-            {
-                _deleteCommand = value;
-                this.RaisePropertyChanged("DeleteCommand");
-            }
-        }
         
-        private RelayCommand _addCommand;
-        public RelayCommand AddCommand
-        {
-            get
-            {
-                return _addCommand;
-            }
-            set
-            {
-                _addCommand = value;
-                this.RaisePropertyChanged("AddCommand");
-            }
-        }
-
-        private RelayCommand _updateCommand;
-        public RelayCommand UpdateCommand
-        {
-            get
-            {
-                return _updateCommand;
-            }
-            set
-            {
-                _updateCommand = value;
-                this.RaisePropertyChanged("UpdateCommand");
-            }
-        }
-        #endregion
         #region methods
         private void InitializeCommands()
         {

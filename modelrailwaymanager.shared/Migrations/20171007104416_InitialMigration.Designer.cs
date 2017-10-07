@@ -8,7 +8,7 @@ using HolidayCottageManager.Shared.Services;
 namespace HolidayCottageManager.Shared.Migrations
 {
     [DbContext(typeof(DatabaseService))]
-    [Migration("20171007101636_InitialMigration")]
+    [Migration("20171007104416_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,6 +34,24 @@ namespace HolidayCottageManager.Shared.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Locomotives");
+                });
+
+            modelBuilder.Entity("HolidayCottageManager.Shared.Models.Wagon", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Notes");
+
+                    b.Property<int>("PartNumber");
+
+                    b.Property<string>("ProductLink");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Wagons");
                 });
 
             modelBuilder.Entity("HolidayCottageManager.Shared.Track", b =>

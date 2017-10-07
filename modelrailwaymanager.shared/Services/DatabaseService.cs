@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using HolidayCottageManager.Shared.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace HolidayCottageManager.Shared.Services
     {
         public DbSet<Track> Tracks { get; set; }
         public DbSet<Locomotive> Locomotives { get; set; }
+        public DbSet<Wagon> Wagons { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

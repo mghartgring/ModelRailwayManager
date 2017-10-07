@@ -47,11 +47,11 @@
                 <StackPanel Orientation="Horizontal">
                     <Button x:Name="SettingsButton" 
                             FontFamily="Segoe MDL2 Assets" 
-                            Content="&#xE713;"
+                            Content="&#xE90E;"
                             Width="50" Height="50" 
                             Background="Transparent"
                             Click="MenuClickHandler"/>
-                    <TextBlock Text="Settings" 
+                    <TextBlock Text="Wagons" 
                                FontSize="18" 
                                VerticalAlignment="Center" />
                 </StackPanel>

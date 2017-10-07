@@ -107,9 +107,9 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\20171007101636_InitialMigration.cs" />
-    <Compile Include="Migrations\20171007101636_InitialMigration.designer.cs">
-      <DependentUpon>20171007101636_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\20171007104416_InitialMigration.cs" />
+    <Compile Include="Migrations\20171007104416_InitialMigration.designer.cs">
+      <DependentUpon>20171007104416_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DatabaseServiceModelSnapshot.cs" />
     <Compile Include="Models\Locomotive.cs" />
@@ -121,6 +121,7 @@
     <Compile Include="ViewModels\TrackViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\TrainViewModel.cs" />
+    <Compile Include="ViewModels\WagonViewModel.cs" />
     <EmbeddedResource Include="Properties\HolidayCottageManager.Shared.rd.xml" />
   </ItemGroup>
   <ItemGroup />

@@ -104,8 +104,8 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModelLocator.cs" />
-    <Compile Include="Views\SettingsPage\SettingsPage.xaml.cs">
-      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    <Compile Include="Views\WagonPage\WagonPage.xaml.cs">
+      <DependentUpon>WagonPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TrackPage\TrackPage.xaml.cs">
       <DependentUpon>TrackPage.xaml</DependentUpon>
@@ -143,7 +143,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SettingsPage\SettingsPage.xaml">
+    <Page Include="Views\WagonPage\WagonPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
