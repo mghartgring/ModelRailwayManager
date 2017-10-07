@@ -14,10 +14,25 @@ namespace HolidayCottageManager.Shared.ViewModels
     {
         public BaseItemPageViewModel()
         {
-            AddSectionCommand = new RelayCommand(ToggleSections);
+            AddSectionCommand = new RelayCommand(ShowAddView);
         }
 
-        private Visibility _detailVisibility = Visibility.Visible;
+        private Visibility _messageVisibility = Visibility.Visible;
+        public Visibility MessageVisibility
+        {
+            get
+            {
+                return _messageVisibility;
+            }
+            set
+            {
+                _messageVisibility = value;
+                this.RaisePropertyChanged("MessageVisibility");
+            }
+        }
+        
+
+        private Visibility _detailVisibility = Visibility.Collapsed;
         public Visibility DetailVisibility
         {
             get
@@ -102,10 +117,25 @@ namespace HolidayCottageManager.Shared.ViewModels
             }
         }
         #endregion
-        protected void ToggleSections()
+        protected void ShowAddView()
         {
-            AddVisibility = AddVisibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed;
-            DetailVisibility = DetailVisibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed;
+            AddVisibility = Visibility.Visible;
+            DetailVisibility = Visibility.Collapsed;
+            MessageVisibility = Visibility.Collapsed;
+        }
+
+        protected void ShowDetailView()
+        {
+            AddVisibility = Visibility.Collapsed;
+            MessageVisibility = Visibility.Collapsed;
+            DetailVisibility = Visibility.Visible;
+        }
+
+        protected void ShowMessage()
+        {
+            AddVisibility = Visibility.Collapsed;
+            MessageVisibility = Visibility.Visible;
+            DetailVisibility = Visibility.Collapsed;
         }
     }
 }

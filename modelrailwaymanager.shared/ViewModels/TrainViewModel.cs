@@ -43,6 +43,7 @@ namespace HolidayCottageManager.Shared.ViewModels
             }
             set
             {
+                if (_currentLocomotive == null) ShowDetailView();
                 _currentLocomotive = value;
                 this.RaisePropertyChanged("CurrentLocomotive");
             }
@@ -76,12 +77,14 @@ namespace HolidayCottageManager.Shared.ViewModels
             if (CurrentLocomotive == null) return;
             database.UpdateAndSave(CurrentLocomotive);
             InitializeLocomotiveList();
+            ShowMessage();
         }
 
         private void DeleteCurrentLocomotive()
         {
             database.RemoveAndSave(CurrentLocomotive);
             InitializeLocomotiveList();
+            ShowMessage();
         }
 
         private void InitializeLocomotiveList()
@@ -93,8 +96,9 @@ namespace HolidayCottageManager.Shared.ViewModels
         {
             if (AddLocomotive == null) return;
             database.AddAndSave(AddLocomotive);
+            AddLocomotive = new Locomotive();
             InitializeLocomotiveList();
-            ToggleSections();
+            ShowMessage();
         }
         #endregion
     }

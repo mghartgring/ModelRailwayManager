@@ -46,6 +46,7 @@ namespace HolidayCottageManager.Shared.ViewModels
             }
             set
             {
+                if (_currentWagon == null) ShowDetailView();
                 _currentWagon = value;
                 this.RaisePropertyChanged("CurrentWagon");
             }
@@ -75,12 +76,14 @@ namespace HolidayCottageManager.Shared.ViewModels
         {
             database.RemoveAndSave(CurrentWagon);
             LoadWagonList();
+            ShowMessage();
         }
 
         private void UpdateWagonAction()
         {
             database.UpdateAndSave(CurrentWagon);
             LoadWagonList();
+            ShowMessage();
         }
 
         private void AddWagonAction()
@@ -88,7 +91,7 @@ namespace HolidayCottageManager.Shared.ViewModels
             if (AddWagon == null) return;
             database.AddAndSave(AddWagon);
             LoadWagonList();
-            ToggleSections();
+            ShowMessage();
             AddWagon = new Wagon();
         }
         #endregion

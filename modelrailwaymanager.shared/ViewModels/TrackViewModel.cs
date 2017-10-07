@@ -72,7 +72,7 @@ namespace ModelRailwayManager.Shared.ViewModels
             }
         }
 
-        private Track _currentTrack;
+        private Track _currentTrack = null;
         public Track CurrentTrack
         {
             get
@@ -81,14 +81,12 @@ namespace ModelRailwayManager.Shared.ViewModels
             }
             set
             {
+                if (_currentTrack == null) ShowDetailView();
                 _currentTrack = value;
                 this.RaisePropertyChanged("CurrentTrack");
             }
         }
         
-        
-        
-
         #region methods
         private  async void InitializeData()
         {
@@ -109,6 +107,7 @@ namespace ModelRailwayManager.Shared.ViewModels
         {
             if (CurrentTrack == null) return;
             database.RemoveAndSave(CurrentTrack);
+            ShowMessage();
             LoadTrackList();
         }
 
@@ -119,60 +118,17 @@ namespace ModelRailwayManager.Shared.ViewModels
             database.AddAndSave(t);
             AddTrackCount = 0;
             AddTrackPartNumber = 0;
-            ToggleSections();
+            ShowMessage();
             LoadTrackList();
         }
 
         private void UpdateTrack()
         {
             database.UpdateAndSave(CurrentTrack);
-        }
-        
-        
-        #endregion
-
-        #region commands
-        private RelayCommand _deleteCommand;
-        public RelayCommand DeleteCommand
-        {
-            get
-            {
-                return _deleteCommand;
-            }
-            set
-            {
-                _deleteCommand = value;
-                this.RaisePropertyChanged("DeleteCommand");
-            }
-        }
-
-        private RelayCommand _addCommand;
-        public RelayCommand AddCommand
-        {
-            get
-            {
-                return _addCommand;
-            }
-            set
-            {
-                _addCommand = value;
-                this.RaisePropertyChanged("AddCommand");
-            }
-        }
-
-        private RelayCommand _updateCommand;
-        public RelayCommand UpdateCommand
-        {
-            get
-            {
-                return _updateCommand;
-            }
-            set
-            {
-                _updateCommand = value;
-                this.RaisePropertyChanged("UpdateCommand");
-            }
+            ShowMessage();
+            LoadTrackList();
         }
         #endregion
+        
     }
 }

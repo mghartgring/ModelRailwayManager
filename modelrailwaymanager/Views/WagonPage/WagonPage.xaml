@@ -26,6 +26,12 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
+        <TextBlock HorizontalAlignment="Center"
+                    Margin="0 200 0 0"
+                    Text="Select an item to display"
+                    FontWeight="Bold"
+                    Grid.Column="1"
+                    Visibility="{Binding MessageVisibility}"/>
         <Grid Grid.Column="1"
               x:Name="AddGrid"
               Visibility="{Binding AddVisibility}"

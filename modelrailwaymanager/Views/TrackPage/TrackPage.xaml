@@ -28,12 +28,12 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
-           <TextBlock HorizontalAlignment="Center"
-                       Margin="0 200 0 0"
-                       Text="Select an item to display"
-                       FontWeight="Bold"
-                       Grid.Column="1"
-                       Visibility="Collapsed"/>
+        <TextBlock HorizontalAlignment="Center"
+                    Margin="0 200 0 0"
+                    Text="Select an item to display"
+                    FontWeight="Bold"
+                    Grid.Column="1"
+                    Visibility="{Binding MessageVisibility}"/>
         <Grid x:Name="DetailGrid"
               Grid.Column="1"
               Padding="100 10 0 0"
