@@ -95,7 +95,6 @@ namespace ModelRailwayManager.Shared.ViewModels
                 database = new DatabaseService();
                 LoadTrackList();
             });
-            
         }
 
         private void LoadTrackList()

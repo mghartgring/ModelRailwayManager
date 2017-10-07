@@ -7,6 +7,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using HolidayCottageManager.Shared.Services;
 using Microsoft.EntityFrameworkCore;
+using Windows.UI.Core;
 
 namespace HolidayCottageManager.Shared.ViewModels
 {
@@ -15,9 +16,9 @@ namespace HolidayCottageManager.Shared.ViewModels
         private DatabaseService database;
         public TrainViewModel()
         {
-            database = new DatabaseService();
+            LoadDataService();
             InitializeCommands();
-            InitializeLocomotiveList();
+           
         }
 
         private List<Locomotive> _locomotiveList = new List<Locomotive>();
@@ -63,8 +64,17 @@ namespace HolidayCottageManager.Shared.ViewModels
                 this.RaisePropertyChanged("AddLocomotive");
             }
         }
-        
+
         #region methods
+        private async void LoadDataService()
+        {
+            await CoreWindow.GetForCurrentThread().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                database = new DatabaseService();
+                LoadLocomotiveList();
+            });
+        }
+
         private void InitializeCommands()
         {
             AddCommand = new RelayCommand(AddLocomotiveAction);
@@ -76,18 +86,18 @@ namespace HolidayCottageManager.Shared.ViewModels
         {
             if (CurrentLocomotive == null) return;
             database.UpdateAndSave(CurrentLocomotive);
-            InitializeLocomotiveList();
+            LoadLocomotiveList();
             ShowMessage();
         }
 
         private void DeleteCurrentLocomotive()
         {
             database.RemoveAndSave(CurrentLocomotive);
-            InitializeLocomotiveList();
+            LoadLocomotiveList();
             ShowMessage();
         }
 
-        private void InitializeLocomotiveList()
+        private void LoadLocomotiveList()
         {
             LocomotiveList = database.Locomotives.ToList();
         }
@@ -97,7 +107,7 @@ namespace HolidayCottageManager.Shared.ViewModels
             if (AddLocomotive == null) return;
             database.AddAndSave(AddLocomotive);
             AddLocomotive = new Locomotive();
-            InitializeLocomotiveList();
+            LoadLocomotiveList();
             ShowMessage();
         }
         #endregion

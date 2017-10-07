@@ -7,6 +7,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using HolidayCottageManager.Shared.Models;
 using HolidayCottageManager.Shared.Services;
+using Windows.UI.Core;
 
 namespace HolidayCottageManager.Shared.ViewModels
 {
@@ -14,8 +15,7 @@ namespace HolidayCottageManager.Shared.ViewModels
     {
         public WagonViewModel()
         {
-            database = new DatabaseService();
-            LoadWagonList();
+            LoadDataService();
             AddCommand = new RelayCommand(AddWagonAction);
             UpdateCommand = new RelayCommand(UpdateWagonAction);
             DeleteCommand = new RelayCommand(DeleteWagonAction);
@@ -67,6 +67,15 @@ namespace HolidayCottageManager.Shared.ViewModels
         }
         
         #region methods
+        private async void LoadDataService()
+        {
+            await CoreWindow.GetForCurrentThread().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                database = new DatabaseService();
+                LoadWagonList();
+            });
+        }
+
         private void LoadWagonList()
         {
             WagonList = database.Wagons.ToList();
