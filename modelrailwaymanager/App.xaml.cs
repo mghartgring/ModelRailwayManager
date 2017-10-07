@@ -32,7 +32,7 @@ namespace ModelRailwayManager
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-
+            //Use this when launching the first time
             //using (var db = new DatabaseService())
             //{
             //    db.Database.Migrate();

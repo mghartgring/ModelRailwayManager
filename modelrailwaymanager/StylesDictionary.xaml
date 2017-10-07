@@ -140,5 +140,4 @@
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Margin" Value="10 10 0 0"/>
     </Style>
-
 </ResourceDictionary>
