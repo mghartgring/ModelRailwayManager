@@ -9,6 +9,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -32,11 +33,17 @@ namespace ModelRailwayManager
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-            //Use this when launching the first time
-            //using (var db = new DatabaseService())
-            //{
-            //    db.Database.Migrate();
-            //}
+
+            var roamingSettings = ApplicationData.Current.RoamingSettings;
+            if (!roamingSettings.Values.ContainsKey("NeedMigration"))
+            {
+                using (var db = new DatabaseService())
+                {
+                    db.Database.Migrate();
+                }
+                roamingSettings.Values["NeedMigration"] = false;
+            }
+
         }
 
         /// <summary>

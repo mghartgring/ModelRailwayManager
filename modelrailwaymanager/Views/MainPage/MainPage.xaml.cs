@@ -34,7 +34,7 @@ namespace ModelRailwayManager
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
         {
-            MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
+            SplitView.IsPaneOpen = !SplitView.IsPaneOpen;
         }
 
         private void MenuClickHandler(object sender, RoutedEventArgs e)
