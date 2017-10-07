@@ -15,6 +15,26 @@ namespace HolidayCottageManager.Shared.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");
 
+            modelBuilder.Entity("HolidayCottageManager.Shared.Locomotive", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Adress");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Notes");
+
+                    b.Property<int>("PartNumber");
+
+                    b.Property<string>("ProductLink");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Locomotives");
+                });
+
             modelBuilder.Entity("HolidayCottageManager.Shared.Track", b =>
                 {
                     b.Property<int>("PartNumber")
@@ -25,24 +45,6 @@ namespace HolidayCottageManager.Shared.Migrations
                     b.HasKey("PartNumber");
 
                     b.ToTable("Tracks");
-                });
-
-            modelBuilder.Entity("HolidayCottageManager.Shared.Train", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("Adress");
-
-                    b.Property<int>("Name");
-
-                    b.Property<int>("PartNumber");
-
-                    b.Property<string>("ProductLink");
-
-                    b.HasKey("id");
-
-                    b.ToTable("Trains");
                 });
         }
     }

@@ -3,23 +3,25 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
 using HolidayCottageManager.Shared;
 using HolidayCottageManager.Shared.Services;
+using HolidayCottageManager.Shared.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 
 namespace ModelRailwayManager.Shared.ViewModels
 {
-    public class TrackViewModel : ViewModelBase
+    public class TrackViewModel : BaseItemPageViewModel
     {
         public TrackViewModel()
         {
             AddCommand = new RelayCommand(AddTrack);
             DeleteCommand = new RelayCommand(DeleteTrack);
-            AddSectionCommand = new RelayCommand(ToggleSections);
+           
             UpdateCommand = new RelayCommand(UpdateTrack);
             InitializeData();
         }
@@ -40,33 +42,7 @@ namespace ModelRailwayManager.Shared.ViewModels
             }
         }
 
-        private Visibility _detailVisibility = Visibility.Visible;
-        public Visibility DetailVisibility
-        {
-            get
-            {
-                return _detailVisibility;
-            }
-            set
-            {
-                _detailVisibility = value;
-                this.RaisePropertyChanged("DetailVisibility");
-            }
-        }
-
-        private Visibility _addVisibility = Visibility.Collapsed;
-        public Visibility AddVisibility
-        {
-            get
-            {
-                return _addVisibility;
-            }
-            set
-            {
-                _addVisibility = value;
-                this.RaisePropertyChanged("AddVisibility");
-            }
-        }
+        
 
         private int _addTrackCount = 0;
         public int AddTrackCount
@@ -114,10 +90,14 @@ namespace ModelRailwayManager.Shared.ViewModels
         
 
         #region methods
-        private void InitializeData()
+        private  async void InitializeData()
         {
-            database = new DatabaseService();
-            LoadTrackList();
+            await CoreWindow.GetForCurrentThread().Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => 
+            {
+                database = new DatabaseService();
+                LoadTrackList();
+            });
+            
         }
 
         private void LoadTrackList()
@@ -148,28 +128,10 @@ namespace ModelRailwayManager.Shared.ViewModels
             database.UpdateAndSave(CurrentTrack);
         }
         
-        private void ToggleSections()
-        {
-            AddVisibility = AddVisibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed;
-            DetailVisibility = DetailVisibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed;
-        }
+        
         #endregion
 
         #region commands
-        private RelayCommand _addSectionCommand;
-        public RelayCommand AddSectionCommand
-        {
-            get
-            {
-                return _addSectionCommand;
-            }
-            set
-            {
-                _addSectionCommand = value;
-                this.RaisePropertyChanged("AddSectionCommand");
-            }
-        }
-
         private RelayCommand _deleteCommand;
         public RelayCommand DeleteCommand
         {

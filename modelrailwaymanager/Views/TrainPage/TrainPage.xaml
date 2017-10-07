@@ -8,6 +8,165 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="Train Page"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical"
+                    Background="#EDF2F6">
+            <Button Content="+ Add locomotive"
+                    Style="{StaticResource AddElementButtonStyle}"
+                    Command="{Binding AddSectionCommand}"/>
+            <ListView  ItemsSource="{Binding LocomotiveList}"
+                      SelectedItem="{Binding CurrentLocomotive, Mode=TwoWay}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+
+        <Grid x:Name="AddGrid"
+              Visibility="{Binding AddVisibility}"
+              Grid.Column="1"
+              Padding="100 10 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" 
+                       Grid.ColumnSpan="2"
+                       Text="Add locomotive"
+                       Style="{StaticResource DetailTitle}"/>
+            <TextBlock  Text="Partnumber:"
+                        Margin="0 12 0 0"
+                        Grid.Column="0"
+                        Grid.Row="1"/>
+            <TextBox Style="{StaticResource InputBoxStyle}"
+                     Grid.Column="1"
+                     InputScope="Number"
+                     Text="{Binding AddLocomotive.PartNumber, Mode=TwoWay}"
+                     Grid.Row="1"/>
+            <TextBlock  Text="Adress:"
+                        Margin="0 12 0 0"
+                        Grid.Row="2"
+                        Grid.Column="0"/>
+            <TextBox Style="{StaticResource InputBoxStyle}"
+                     Grid.Row="2"
+                     InputScope="Number"
+                     Text="{Binding AddLocomotive.Adress, Mode=TwoWay}"
+                     Grid.Column="1"/>
+            <TextBlock  Text="Name:"
+                        Margin="0 12 0 0"
+                        Grid.Row="3"
+                        Grid.Column="0"/>
+            <TextBox Style="{StaticResource InputBoxStyle}"
+                     Grid.Row="3"
+                     Grid.Column="1"
+                     Text="{Binding AddLocomotive.Name, Mode=TwoWay}"/>
+            <TextBlock  Text="Product link:"
+                        Margin="0 12 0 0"
+                        Grid.Row="4"
+                        Grid.Column="0"/>
+            <TextBox Style="{StaticResource InputBoxStyle}"
+                     Grid.Row="4"
+                     InputScope="Url"
+                     Grid.Column="1"
+                     Text="{Binding AddLocomotive.ProductLink, Mode=TwoWay}"/>
+            <TextBlock  Text="Notes:"
+                        Margin="0 12 0 0"
+                        Grid.Row="5"
+                        Grid.Column="0"/>
+            <TextBox Style="{StaticResource BigInputBoxStyle}"
+                     Grid.Row="5"
+                     AcceptsReturn="True"
+                     Grid.Column="1"
+                     Text="{Binding AddLocomotive.Notes, Mode=TwoWay}"/>
+            <Button Grid.Row="6"
+                    Content="Save"
+                    Command="{Binding AddCommand}"/>
+        </Grid>
+        <Grid x:Name="DetailGrid"
+              Visibility="{Binding DetailVisibility}"
+              Grid.Column="1"
+              Padding="100 10 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" 
+                       Grid.ColumnSpan="2"
+                       Text="Details of locomotive"
+                       Style="{StaticResource DetailTitle}"/>
+            <TextBlock  Text="Partnumber:"
+                        Margin="0 12 0 0"
+                        Grid.Column="0"
+                        Grid.Row="1"/>
+            <TextBox Style="{StaticResource InputBoxStyle}"
+                        IsReadOnly="True"
+                        Grid.Column="1"
+                        Text="{Binding CurrentLocomotive.PartNumber, Mode=TwoWay}"
+                        Grid.Row="1"/>
+            <TextBlock  Text="Adress:"
+                        Margin="0 12 0 0"
+                        Grid.Row="2"
+                        Grid.Column="0"/>
+            <TextBox Style="{StaticResource InputBoxStyle}"
+                     Grid.Row="2"
+                     Text="{Binding CurrentLocomotive.Adress, Mode=TwoWay}"
+                     Grid.Column="1"/>
+            <TextBlock  Text="Name:"
+                        Margin="0 12 0 0"
+                        Grid.Row="3"
+                        Grid.Column="0"/>
+            <TextBox Style="{StaticResource InputBoxStyle}"
+                     Grid.Row="3"
+                     Text="{Binding CurrentLocomotive.Name, Mode=TwoWay}"
+                     Grid.Column="1"/>
+            <TextBlock  Text="Product link:"
+                        Margin="0 12 0 0"
+                        Grid.Row="4"
+                        Grid.Column="0"/>
+            <TextBox Style="{StaticResource InputBoxStyle}"
+                     Grid.Row="4"
+                     Text="{Binding CurrentLocomotive.ProductLink, Mode=TwoWay}"
+                     Grid.Column="1"/>
+            <TextBlock  Text="Notes:"
+                        Margin="0 12 0 0"
+                        Grid.Row="5"
+                        Grid.Column="0"/>
+            <TextBox Style="{StaticResource BigInputBoxStyle}"
+                     Grid.Row="5"
+                     AcceptsReturn="True"
+                     Text="{Binding CurrentLocomotive.Notes, Mode=TwoWay}"
+                     Grid.Column="1"/>
+            <Button Grid.Row="6"
+                    Grid.Column="0"
+                    Command="{Binding UpdateCommand}"
+                    Content="Save"/>
+            <Button Grid.Row="6"
+                    Grid.Column="1"
+                    Content="Delete"
+                    Command="{Binding DeleteCommand}"/>
+        </Grid>
     </Grid>
 </Page>

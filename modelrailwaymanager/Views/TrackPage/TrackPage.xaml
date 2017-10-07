@@ -11,12 +11,13 @@
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Vertical" Background="#EDF2F6">
+        <StackPanel Orientation="Vertical" 
+                    Background="#EDF2F6">
             <Button Grid.Row="0" 
                     Grid.Column="0"
                     Content="+ Add Track"
-                    Width="300"
-                    Command="{Binding AddSectionCommand}" Style="{StaticResource AddElementButtonStyle}"/>
+                    Command="{Binding AddSectionCommand}" 
+                    Style="{StaticResource AddElementButtonStyle}"/>
        
             <ListView  ItemsSource="{Binding TrackList}"
                       SelectedItem="{Binding CurrentTrack, Mode=TwoWay}" >
